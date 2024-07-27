@@ -11,9 +11,7 @@ class ChatConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        print(message)
         response = self.chat.send_message(message)
-        print(response.text)
         self.send(text_data=json.dumps({'response': response.text}))
 
     def init_chat(self):
@@ -50,7 +48,7 @@ class ChatConsumer(WebsocketConsumer):
                 ]},
                 {"role": "model",
                 "parts": [
-                    "To signup for CashX, you'll need to head to one of our kiosks. It's super easy:\n\n1. **Tap \"Sign Up\":** On the kiosk screen, tap the \"Sign Up\" button.\n2. **Enter Your Info:**  Follow the prompts and enter your name, phone number, and email address. \n3. **Create a PIN:**  Choose a secure 4-digit PIN for your account.\n4. **Verify Your Identity:**  You'll need to provide a government-issued ID. \n5. **You're All Set!**\n\nHere is a video demonstration:\HOWTO [https://www.youtube.com/watch?v=ltho8_PzC2U]",
+                    "To signup for CashX, you'll need to head to one of our kiosks. It's super easy:\n\n1. **Tap \"Sign Up\":** On the kiosk screen, tap the \"Sign Up\" button.\n2. **Enter Your Info:**  Follow the prompts and enter your name, phone number, and email address. \n3. **Create a PIN:**  Choose a secure 4-digit PIN for your account.\n4. **Verify Your Identity:**  You'll need to provide a government-issued ID. \n5. **You're All Set!**\n\nHere is a video demonstration:\nHOWTO [https://www.youtube.com/watch?v=ltho8_PzC2U]",
                 ]},
                 {"role": "user",
                 "parts": [
